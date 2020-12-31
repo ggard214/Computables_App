@@ -21,15 +21,19 @@ function LoginForm() {
 
   return (
     <>
-      <h1>Log In</h1>
+      <div className="login1">
+        <h1 className="logheading">Log In</h1>
+      </div>
+      <br></br>
       <form onSubmit={handleSubmit}>
         <ul>
           {errors.map((error, idx) => (
             <li key={idx}>{error}</li>
           ))}
         </ul>
-        <label>
+        <label id="unem">
           Username or Email
+          <br></br>
           <input
             type="text"
             value={credential}
@@ -37,8 +41,11 @@ function LoginForm() {
             required
           />
         </label>
+        <br></br>
+        <br></br>
         <label>
           Password
+          <br></br>
           <input
             type="password"
             value={password}

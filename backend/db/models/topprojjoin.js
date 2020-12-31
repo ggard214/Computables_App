@@ -13,7 +13,8 @@ module.exports = (sequelize, DataTypes) => {
     },
   }, {});
   TopProjJoin.associate = function(models) {
-    // associations can be defined here
+    TopProjJoin.belongsTo(models.Project, {foreignKey: 'projId'})
+    TopProjJoin.belongsTo(models.Topic, { foreignKey: "topId" });
   };
   return TopProjJoin;
 };
