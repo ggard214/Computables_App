@@ -64,10 +64,7 @@ const Home = () => {
           </p>
         </div>
       </div>
-      <hr id="bar1"></hr>
-      <div id="projbox">
-        <h1 id="explore">EXPLORE PROJECTS</h1>
-      </div>
+      
     </div>
   );
 };

@@ -32,7 +32,7 @@ function LoginForm() {
           ))}
         </ul>
         <label id="unem">
-          Username or Email
+          Username or Email:
           <br></br>
           <input
             type="text"
@@ -43,8 +43,8 @@ function LoginForm() {
         </label>
         <br></br>
         <br></br>
-        <label>
-          Password
+        <label id="pw">
+          Password:
           <br></br>
           <input
             type="password"
@@ -53,7 +53,10 @@ function LoginForm() {
             required
           />
         </label>
-        <button type="submit">Log In</button>
+        <br></br>
+        <div className="submitbutton">
+          <button type="submit">Log In</button>
+        </div>
       </form>
     </>
   );

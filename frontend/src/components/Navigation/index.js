@@ -29,12 +29,22 @@ function Navigation({ isLoaded }) {
             <img className="homeicon" src={bubblebop} alt="home" />
           </NavLink>
         </li>
-        <li>Building</li>
-        <li>Cooling</li>
-        <li>Overclocking</li>
-        <li>Modification</li>
+        <li>
+          <NavLink to="/building">Building</NavLink>
+        </li>
+        <li>
+          <NavLink to="/cooling">Cooling</NavLink>
+        </li>
+        <li>
+          <NavLink to="/overclocking">Overclocking</NavLink>
+        </li>
+        <li>
+          <NavLink to="/modification">Modification</NavLink>
+        </li>
       </div>
-      <li className="logsign">{isLoaded} {sessionLinks}</li>
+      <li className="logsign">
+        {isLoaded} {sessionLinks}
+      </li>
     </ul>
   );
 }

@@ -6,6 +6,10 @@ import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import Home from "./components/HomePage"
+import Building from './components/Building';
+import Cooling from './components/Cooling';
+import Mods from './components/Mods';
+import Oc from './components/Overclock';
 
 function App() {
   const dispatch = useDispatch();
@@ -22,8 +26,20 @@ function App() {
           {/* <Route path="/login" >
             <LoginFormPage />
           </Route> */}
-          <Route exact path='/' >
-          <Home />
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/building">
+            <Building />
+          </Route>
+          <Route path="/cooling">
+            <Cooling />
+          </Route>
+          <Route path="/modification">
+            <Mods />
+          </Route>
+          <Route path="/overclocking">
+            <Oc />
           </Route>
           <Route path="/signup">
             <SignupFormPage />

@@ -7,3 +7,21 @@
   cursor: pointer;
   outline: inherit;
 }
+
+.logheading {
+  padding-left: 30%;
+  padding-top: 10px;
+}
+
+.submitbutton {
+  padding-left: 30%;
+  padding-top: 10px;
+}
+
+#unem {
+  font-size: 12px;
+}
+
+#pw {
+  font-size: 12px;
+}
