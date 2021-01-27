@@ -10,12 +10,15 @@ import Building from './components/Building';
 import Cooling from './components/Cooling';
 import Mods from './components/Mods';
 import Oc from './components/Overclock';
+import { getBuildings } from "./store/building";
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
-    dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
+    dispatch(sessionActions.restoreUser())
+    dispatch(getBuildings())
+    .then(() => setIsLoaded(true));
   }, [dispatch]);
 
   return (
