@@ -1,0 +1,80 @@
+#top-bar {
+  background: lightgrey;
+  height: 89px;
+  display: flex;
+}
+
+.logo {
+  align-content: center;
+  padding-left: 10px;
+  padding-top: 9px;
+  height: 72px;
+  width: 100px;
+}
+
+#top-bar > h1 {
+  margin: 0;
+  padding-left: 5px;
+  padding-top: 27px;
+  font-size: 35px;
+}
+
+.tite {
+  font-size: 25px;
+  text-align: center;
+}
+
+.tite > p {
+  font-size: 15px;
+}
+
+.artpic {
+  margin: auto;
+  width: 600px;
+  height: 400px;
+  border-style: solid;
+  border-width: 2px;
+  overflow: hidden;
+}
+
+.artimg {
+  width: 600px;
+  height: 400px;
+}
+
+.sum {
+  margin: auto;
+  width: 600px;
+}
+
+.sum > h1 {
+  font-size: 20px;
+}
+
+.steps {
+  margin: auto;
+  width: 600px;
+}
+
+.steps > h1 {
+  font-size: 20px;
+}
+
+.commentsarea {
+  margin: auto;
+  width: 600px;
+}
+
+.comhead {
+  text-align: center;
+  font-size: 25px;
+}
+
+.combox {
+  border-style: solid;
+  border-width: 2px;
+}
+
+.comuser {
+    background-color: lightgray;
+}

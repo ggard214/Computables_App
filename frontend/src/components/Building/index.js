@@ -1,10 +1,10 @@
 import "../pagecss/index.css";
 import { useSelector, useDispatch } from "react-redux";
 import logo from "./logo/logo.png";
-import getBuildings from "../../store/building";
+import { useHistory } from "react-router-dom";
 
 const Building = () => {
-  const dispatch = useDispatch();
+  const history = useHistory();
   const loggedInUser = useSelector((state) => {
     return state.session.user;
   });
@@ -27,7 +27,10 @@ const Building = () => {
             );
             return (
               <div key={index} className="buildarea">
-                <div className="builds">
+                <div
+                  className="builds"
+                  onClick={() => history.push(`/building/${building.projId}`)}
+                >
                   <img
                     className="projimg"
                     src={building.Project.PicVids[0].picvidURL}

@@ -38,9 +38,10 @@ router.get("/", async (req, res, next) => {
 
 router.get("/:id(\\d+)", async (req, res, next) => {
   try {
-    const projId = parseInt(req.params.id);
-    const article = await TopProjJoin.findByPk(projId, {
-      where: { topId: 1 },
+    const projId = parseInt(req.params.id, 10);
+    console.log(projId);
+    const article = await TopProjJoin.findOne({
+      where: { topId: 1, projId: projId },
       include: [
         {
           model: Project,
@@ -49,7 +50,7 @@ router.get("/:id(\\d+)", async (req, res, next) => {
             { model: User },
             { model: PicVid },
             { model: Topic },
-            { model: Comment },
+            { model: Comment, include: User },
           ],
         },
       ],
