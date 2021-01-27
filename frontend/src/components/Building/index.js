@@ -1,4 +1,4 @@
-import "./index.css";
+import "../pagecss/index.css";
 import { useSelector, useDispatch } from "react-redux";
 import logo from "./logo/logo.png";
 import getBuildings from "../../store/building";

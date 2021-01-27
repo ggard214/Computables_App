@@ -2,9 +2,12 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import session from './session'
 import buildings from './building';
+import coolings from './cooling';
+import ocs from './oc';
+import mods from './mod';
 
 const rootReducer = combineReducers({
-  session, buildings
+  session, buildings, coolings, ocs, mods
 });
 
 let enhancer;

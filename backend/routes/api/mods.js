@@ -10,21 +10,25 @@ router.get("/", async (req, res, next) => {
     const builds = await TopProjJoin.findAll({
       where: { topId: 4 },
       include: [
-        { model: Project, attributes: ["title", "id"], include: [User] },
+        {
+          model: Project,
+          attributes: ["title", "id", "userId"],
+          include: [{ model: User }, { model: PicVid }],
+        },
       ],
       order: [["createdAt", "DESC"]],
     });
     const mediaContainer = {};
-    await Promise.all(
-      builds.map(async (build) => {
-        const { id } = build.Project;
-        const media = await PicVid.findAll({
-          where: { projId: id },
-        });
-        mediaContainer[id] = media;
-        return build;
-      })
-    );
+    // await Promise.all(
+    //   builds.map(async (build) => {
+    //     const { id } = build.Project;
+    //     const media = await PicVid.findAll({
+    //       where: { projId: id },
+    //     });
+    //     mediaContainer[id] = media;
+    //     return build;
+    //   })
+    // );
 
     res.json({ builds, mediaContainer });
   } catch (e) {

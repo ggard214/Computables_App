@@ -11,6 +11,9 @@ import Cooling from './components/Cooling';
 import Mods from './components/Mods';
 import Oc from './components/Overclock';
 import { getBuildings } from "./store/building";
+import { getCoolings } from "./store/cooling";
+import { getOcs } from "./store/oc";
+import { getMods } from "./store/mod";
 
 function App() {
   const dispatch = useDispatch();
@@ -18,6 +21,9 @@ function App() {
   useEffect(() => {
     dispatch(sessionActions.restoreUser())
     dispatch(getBuildings())
+    dispatch(getCoolings())
+    dispatch(getOcs())
+    dispatch(getMods())
     .then(() => setIsLoaded(true));
   }, [dispatch]);
 
