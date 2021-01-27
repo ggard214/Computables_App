@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const db = require('../../db/models');
+const db = require("../../db/models");
 
 const { User, Project, Comment, Topic, PicVid, TopProjJoin } = db;
 
@@ -13,22 +13,22 @@ router.get("/", async (req, res, next) => {
         {
           model: Project,
           attributes: ["title", "id", "userId"],
-          include: [{ model: User}, {model: PicVid}],          
+          include: [{ model: User }, { model: PicVid }],
         },
       ],
       order: [["createdAt", "DESC"]],
     });
     const mediaContainer = {};
-// await Promise.all( 
-//     builds.map(async (build) => {
-// const {id} = build.Project
-//        const media = await PicVid.findAll({
-//            where: {projId: id}
+    // await Promise.all(
+    //     builds.map(async (build) => {
+    // const {id} = build.Project
+    //        const media = await PicVid.findAll({
+    //            where: {projId: id}
 
-//        })
-//        mediaContainer[id] = media;
-//        return build;
-//        }));
+    //        })
+    //        mediaContainer[id] = media;
+    //        return build;
+    //        }));
 
     return res.json({ builds, mediaContainer });
   } catch (e) {
@@ -36,6 +36,30 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+router.get("/:id(\\d+)", async (req, res, next) => {
+  try {
+    const projId = parseInt(req.params.id);
+    const article = await TopProjJoin.findByPk(projId, {
+      where: { topId: 1 },
+      include: [
+        {
+          model: Project,
+          attributes: ["title", "id", "summary", "steps", "userId"],
+          include: [
+            { model: User },
+            { model: PicVid },
+            { model: Topic },
+            { model: Comment },
+          ],
+        },
+      ],
+      order: [["createdAt", "DESC"]],
+    });
 
+    return res.json({ article });
+  } catch (e) {
+    next(e);
+  }
+});
 
 module.exports = router;

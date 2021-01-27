@@ -1,0 +1,59 @@
+#top-bar {
+  background: lightgrey;
+  height: 89px;
+  display: flex;
+}
+
+.logo {
+  align-content: center;
+  padding-left: 10px;
+  padding-top: 9px;
+  height: 72px;
+  width: 100px;
+}
+
+#top-bar > h1 {
+  margin: 0;
+  padding-left: 5px;
+  padding-top: 27px;
+  font-size: 35px;
+}
+
+.buildarea {
+  display: inline-grid;
+  grid-template-columns: auto auto auto;
+}
+
+.builds {
+  position: relative;
+  width: 350px;
+  height: 250px;
+  margin: 5px;
+  padding-bottom: 5px;
+  border-style: solid;
+  border-width: 2px;
+}
+
+.bottomitems {
+  background-color: lightgray;
+  height: 40px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.projimg {
+  width: 350px;
+  height: 250px;
+}
+
+.title {
+  padding-top: 5px;
+  
+}
+
+.author {
+  padding-bottom: 3px;
+  padding-top: 3px;
+  font-size: 12px;
+}
