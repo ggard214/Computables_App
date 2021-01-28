@@ -49,6 +49,7 @@
 
 .sum > h1 {
   font-size: 20px;
+  padding-bottom: 10px;
 }
 
 .steps {
@@ -58,11 +59,13 @@
 
 .steps > h1 {
   font-size: 20px;
+  padding-bottom: 10px;
 }
 
 .commentsarea {
   margin: auto;
   width: 600px;
+  padding: 5px;
 }
 
 .comhead {
@@ -73,8 +76,14 @@
 .combox {
   border-style: solid;
   border-width: 2px;
+  height: 50px;
+  position: relative;
 }
 
 .comuser {
     background-color: lightgray;
+}
+
+.comquote {
+    position: absolute;
 }

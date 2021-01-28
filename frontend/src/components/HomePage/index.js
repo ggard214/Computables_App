@@ -63,6 +63,7 @@ const Home = () => {
             online communities anywhere.
           </p>
         </div>
+        <br></br>
       </div>
       
     </div>

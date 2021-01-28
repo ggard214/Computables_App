@@ -16,9 +16,13 @@ const BuildArticles = () => {
 
   const article = useSelector((state) => state.buildings.article);
 
+  //   console.log("testing stuff", testingComs)
+
   if (!article) return <h1>Loading Something here!</h1>;
 
-    console.log("user info", article.Project.Comments[1].User.username);
+  console.log("user info", article.Project.Comments[0].User.username);
+//   console.log("showing comments", article.Project.Comments.comment);
+
   return (
     article && (
       <div>
@@ -36,30 +40,40 @@ const BuildArticles = () => {
             {article.Project.Topics[0].topic}
           </p>
         </div>
-        <div><br></br></div>
+        <div>
+          <br></br>
+        </div>
         <div className="artpic">
           <img className="artimg" src={article.Project.PicVids[0].picvidURL} />
         </div>
-        <div><br></br></div>
+        <div>
+          <br></br>
+        </div>
         <div className="sum">
           <h1>Summary:</h1>
           <p>{article.Project.summary}</p>
         </div>
-        <div><br></br></div>
+        <div>
+          <br></br>
+        </div>
         <div className="steps">
           <h1>Steps:</h1>
           <p>{article.Project.steps}</p>
         </div>
-        <div><br></br></div>
+        <div>
+          <br></br>
+        </div>
         <div className="commentsarea">
           <h1 className="comhead">Comments</h1>
           <br></br>
           <div className="combox">
             <div className="comuser">
               <h1>{article.Project.Comments[0].User.username}</h1>
-              </div>
-              <div className="comquote">
-              <p>{article.Project.Comments[0].comment}</p>
+            </div>
+            <div className="comquote">
+              {article.Project.Comments.map((comment) => {
+                return <p>{comment.comment}</p>;
+              })}
             </div>
           </div>
         </div>

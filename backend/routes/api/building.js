@@ -36,7 +36,7 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.get("/:id(\\d+)", async (req, res, next) => {
+router.get(`/:id(\\d+)`, async (req, res, next) => {
   try {
     const projId = parseInt(req.params.id, 10);
     console.log(projId);
