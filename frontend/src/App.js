@@ -15,6 +15,7 @@ import { getCoolings } from "./store/cooling";
 import { getOcs } from "./store/oc";
 import { getMods } from "./store/mod";
 import BuildArticles from './components/BuildArticles';
+import CoolArticles from './components/coolArticles';
 
 function App() {
   const dispatch = useDispatch();
@@ -45,8 +46,11 @@ function App() {
           <Route path="/building/:projId">
             <BuildArticles />
           </Route>
-          <Route path="/cooling">
+          <Route exact path="/cooling">
             <Cooling />
+          </Route>
+          <Route path="/cooling/:projId">
+            <CoolArticles />
           </Route>
           <Route path="/modification">
             <Mods />

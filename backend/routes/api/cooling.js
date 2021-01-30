@@ -35,4 +35,31 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+router.get(`/:id(\\d+)`, async (req, res, next) => {
+  try {
+    const projId = parseInt(req.params.id, 10);
+    console.log(projId);
+    const article = await TopProjJoin.findOne({
+      where: { topId: 2, projId: projId },
+      include: [
+        {
+          model: Project,
+          attributes: ["title", "id", "summary", "steps", "userId"],
+          include: [
+            { model: User },
+            { model: PicVid },
+            { model: Topic },
+            { model: Comment, include: User },
+          ],
+        },
+      ],
+      order: [["createdAt", "DESC"]],
+    });
+
+    return res.json({ article });
+  } catch (e) {
+    next(e);
+  }
+});
+
 module.exports = router;

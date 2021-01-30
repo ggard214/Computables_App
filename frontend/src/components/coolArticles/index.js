@@ -1,28 +1,27 @@
 import "../articlesCss/index.css";
 import { useEffect } from "react";
-import { getOneBuild } from "../../store/building";
+import { getOneCool } from "../../store/cooling";
 import { useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import logo from "./logo/logo.png";
 
-const BuildArticles = () => {
+const CoolArticles = () => {
   const location = useLocation();
   const dispatch = useDispatch();
   const projId = location.pathname.match(/\d+/);
 
   useEffect(() => {
-    dispatch(getOneBuild(projId));
+    dispatch(getOneCool(projId));
   }, [dispatch]);
 
-  const article = useSelector((state) => state.buildings.article);
-  
+  const article = useSelector((state) => state.coolings.article);
+
+  //   console.log("testing stuff", testingComs)
+
   if (!article) return <h1>Loading Something here!</h1>;
 
   console.log("user info", article.Project.Comments[0].User.username);
   //   console.log("showing comments", article.Project.Comments.comment);
-
-  const comusers = article.Project.Comments.forEach(User => console.log("testing this shit", User));
-  // console.log("test data", comusers)
 
   return (
     article && (
@@ -31,7 +30,7 @@ const BuildArticles = () => {
           <div>
             <img className="logo" src={logo} alt="Computables Logo" />
           </div>
-          <h1>pc builds</h1>
+          <h1>cooling</h1>
         </div>
         <br></br>
         <div className="tite">
@@ -69,9 +68,7 @@ const BuildArticles = () => {
           <br></br>
           <div className="combox">
             <div className="comuser">
-              {article.Project.Comments.map((comment) => {
-                return <h1>{comment.User.username}</h1>
-              })}
+              <h1>{article.Project.Comments[0].User.username}</h1>
             </div>
             <div className="comquote">
               {article.Project.Comments.map((comment) => {
@@ -86,4 +83,4 @@ const BuildArticles = () => {
   );
 };
 
-export default BuildArticles;
+export default CoolArticles;
