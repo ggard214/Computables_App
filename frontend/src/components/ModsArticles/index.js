@@ -1,20 +1,22 @@
 import "../articlesCss/index.css";
 import { useEffect } from "react";
-import { getOneCool } from "../../store/cooling";
+import { getOneMod } from "../../store/mod";
 import { useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import logo from "./logo/logo.png";
 
-const CoolArticles = () => {
+const ModArticles = () => {
   const location = useLocation();
   const dispatch = useDispatch();
   const projId = location.pathname.match(/\d+/);
 
   useEffect(() => {
-    dispatch(getOneCool(projId));
+    dispatch(getOneMod(projId));
   }, [dispatch]);
 
-  const article = useSelector((state) => state.coolings.article);
+  const article = useSelector((state) => state.mods.article);
+  
+  console.log("Article Data", article)
 
   if (!article) return <h1>Loading Something here!</h1>;
 
@@ -64,7 +66,7 @@ const CoolArticles = () => {
           <div className="combox">
             <div className="comuser">
               {article.Project.Comments.map((comment) => {
-                return <h1>{comment.User.username}</h1>;
+                return <h1>{comment.User.username}</h1>
               })}
             </div>
             <div className="comquote">
@@ -80,4 +82,4 @@ const CoolArticles = () => {
   );
 };
 
-export default CoolArticles;
+export default ModArticles;

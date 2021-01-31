@@ -9,7 +9,7 @@ import Home from "./components/HomePage"
 import Building from './components/Building';
 import Cooling from './components/Cooling';
 import Mods from './components/Mods';
-import Oc from './components/Overclock';
+import Overclock from './components/Overclock';
 import { getBuildings } from "./store/building";
 import { getCoolings } from "./store/cooling";
 import { getOcs } from "./store/oc";
@@ -17,6 +17,7 @@ import { getMods } from "./store/mod";
 import BuildArticles from './components/BuildArticles';
 import CoolArticles from './components/coolArticles';
 import OCArticles from './components/OverclockArticles';
+import ModArticles from './components/ModsArticles';
 
 function App() {
   const dispatch = useDispatch();
@@ -53,13 +54,17 @@ function App() {
           <Route path="/cooling/:projId">
             <CoolArticles />
           </Route>
-          <Route path="/modification">
+          <Route exact path="/modification">
             <Mods />
+            </Route>
+            <Route path="/modification/:projId">
+            <ModArticles />
           </Route>
           <Route exact path="/overclocking">
-            <Oc />
+            <Overclock />
+            </Route>
           <Route path="/overclocking/:projId">
-          <OCArticles /></Route>
+          <OCArticles />
           </Route>
           <Route path="/signup">
             <SignupFormPage />

@@ -1,15 +1,15 @@
 import "../pagecss/index.css";
 import { useSelector, useDispatch } from "react-redux";
 import logo from "./logo/logo.png";
-import getMods from "../../store/mod";
+import { useHistory } from "react-router-dom";
 
 const Mods = () => {
-  const dispatch = useDispatch();
+  const history = useHistory();
   const loggedInUser = useSelector((state) => {
     return state.session.user;
   });
-
   const mods = useSelector((state) => state.mods);
+  console.log("mod stuff", mods)
 
   return (
     mods && (
@@ -28,7 +28,10 @@ const Mods = () => {
             );
             return (
               <div key={index} className="buildarea">
-                <div className="builds">
+                <div
+                  className="builds"
+                  onClick={() => history.push(`/modification/${mod.projId}`)}
+                >
                   <img
                     className="projimg"
                     src={mod.Project.PicVids[0].picvidURL}

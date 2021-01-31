@@ -15,11 +15,12 @@ const OCArticles = () => {
   }, [dispatch]);
 
   const article = useSelector((state) => state.ocs.article);
+  console.log("OC Article", article);
 
   if (!article) return <h1>Loading Something here!</h1>;
 
   return (
-    article && (
+    (
       <div>
         <div id="top-bar">
           <div>
