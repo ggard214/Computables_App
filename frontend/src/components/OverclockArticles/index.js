@@ -1,20 +1,20 @@
 import "../articlesCss/index.css";
 import { useEffect } from "react";
-import { getOneCool } from "../../store/cooling";
+import { getOneOc } from "../../store/oc";
 import { useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import logo from "./logo/logo.png";
 
-const CoolArticles = () => {
+const OCArticles = () => {
   const location = useLocation();
   const dispatch = useDispatch();
   const projId = location.pathname.match(/\d+/);
 
   useEffect(() => {
-    dispatch(getOneCool(projId));
+    dispatch(getOneOc(projId));
   }, [dispatch]);
 
-  const article = useSelector((state) => state.coolings.article);
+  const article = useSelector((state) => state.ocs.article);
 
   if (!article) return <h1>Loading Something here!</h1>;
 
@@ -25,7 +25,7 @@ const CoolArticles = () => {
           <div>
             <img className="logo" src={logo} alt="Computables Logo" />
           </div>
-          <h1>cooling</h1>
+          <h1>overclocking</h1>
         </div>
         <br></br>
         <div className="tite">
@@ -63,7 +63,9 @@ const CoolArticles = () => {
           <br></br>
           <div className="combox">
             <div className="comuser">
-              <h1>{article.Project.Comments[0].User.username}</h1>
+              {article.Project.Comments.map((comment) => {
+                return <h1>{comment.User.username}</h1>;
+              })}
             </div>
             <div className="comquote">
               {article.Project.Comments.map((comment) => {
@@ -78,4 +80,4 @@ const CoolArticles = () => {
   );
 };
 
-export default CoolArticles;
+export default OCArticles;

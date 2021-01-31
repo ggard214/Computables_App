@@ -15,14 +15,8 @@ const BuildArticles = () => {
   }, [dispatch]);
 
   const article = useSelector((state) => state.buildings.article);
-  
+
   if (!article) return <h1>Loading Something here!</h1>;
-
-  console.log("user info", article.Project.Comments[0].User.username);
-  //   console.log("showing comments", article.Project.Comments.comment);
-
-  const comusers = article.Project.Comments.forEach(User => console.log("testing this shit", User));
-  // console.log("test data", comusers)
 
   return (
     article && (
@@ -70,7 +64,7 @@ const BuildArticles = () => {
           <div className="combox">
             <div className="comuser">
               {article.Project.Comments.map((comment) => {
-                return <h1>{comment.User.username}</h1>
+                return <h1>{comment.User.username}</h1>;
               })}
             </div>
             <div className="comquote">

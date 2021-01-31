@@ -1,14 +1,13 @@
 import "../pagecss/index.css";
 import { useSelector, useDispatch } from "react-redux";
 import logo from "./logo/logo.png";
-import getOcs from '../../store/oc';
+import { useHistory } from "react-router-dom";
 
 const Overclock = () => {
-  const dispatch = useDispatch();
+  const history = useHistory();
   const loggedInUser = useSelector((state) => {
     return state.session.user;
   });
-
   const ocs = useSelector((state) => state.ocs);
 
   return (
@@ -28,7 +27,12 @@ const Overclock = () => {
             );
             return (
               <div key={index} className="buildarea">
-                <div className="builds">
+                <div
+                  className="builds"
+                  onClick={() =>
+                    history.push(`/overclocking/${oc.projId}`)
+                  }
+                >
                   <img
                     className="projimg"
                     src={oc.Project.PicVids[0].picvidURL}
@@ -36,9 +40,7 @@ const Overclock = () => {
                   />
                   <div className="bottomitems">
                     <h1 className="title">{oc.Project.title}</h1>
-                    <p className="author">
-                      Author: {oc.Project.User.username}
-                    </p>
+                    <p className="author">Author: {oc.Project.User.username}</p>
                   </div>
                 </div>
               </div>

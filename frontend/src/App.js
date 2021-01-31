@@ -16,6 +16,7 @@ import { getOcs } from "./store/oc";
 import { getMods } from "./store/mod";
 import BuildArticles from './components/BuildArticles';
 import CoolArticles from './components/coolArticles';
+import OCArticles from './components/OverclockArticles';
 
 function App() {
   const dispatch = useDispatch();
@@ -55,8 +56,10 @@ function App() {
           <Route path="/modification">
             <Mods />
           </Route>
-          <Route path="/overclocking">
+          <Route exact path="/overclocking">
             <Oc />
+          <Route path="/overclocking/:projId">
+          <OCArticles /></Route>
           </Route>
           <Route path="/signup">
             <SignupFormPage />
