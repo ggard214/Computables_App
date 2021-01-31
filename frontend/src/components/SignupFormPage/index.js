@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
-import './SignupForm.css';
-import pichead from '../HomePage/backgroundimage/pc2.jpg'
+import "./SignupForm.css";
+import pichead from "../HomePage/backgroundimage/pc2.jpg";
 
 function SignupFormPage() {
   const dispatch = useDispatch();
@@ -20,12 +20,15 @@ function SignupFormPage() {
     e.preventDefault();
     if (password === confirmPassword) {
       setErrors([]);
-      return dispatch(sessionActions.signup({ email, username, password }))
-        .catch(res => {
-          if (res.data && res.data.errors) setErrors(res.data.errors);
-        });
+      return dispatch(
+        sessionActions.signup({ email, username, password })
+      ).catch((res) => {
+        if (res.data && res.data.errors) setErrors(res.data.errors);
+      });
     }
-    return setErrors(['Confirm Password field must be the same as the Password field']);
+    return setErrors([
+      "Confirm Password field must be the same as the Password field",
+    ]);
   };
 
   return (
@@ -33,6 +36,16 @@ function SignupFormPage() {
       <div id="headimage">
         <img id="pichead" src={pichead} alt="Build your PC"></img>
       </div>
+      <br></br>
+      <div className="heading">
+        <p>
+          Sign up for Computables and share your computer project. Whether is it
+          building a computer, cooling a computer, overclocking a cpu or
+          videocard or a really cool modification. Sign up now and share with
+          our community!
+        </p>
+      </div>
+      <br></br>
       <div id="signupbox">
         <h1 id="signuph1">Sign Up</h1>
         <form onSubmit={handleSubmit}>
@@ -42,7 +55,7 @@ function SignupFormPage() {
             ))}
           </ul>
           <label>
-            Email
+            Email:
             <input
               type="text"
               value={email}
@@ -52,7 +65,7 @@ function SignupFormPage() {
           </label>
           <br></br>
           <label>
-            Username
+            Username:
             <input
               type="text"
               value={username}
@@ -62,7 +75,7 @@ function SignupFormPage() {
           </label>
           <br></br>
           <label>
-            Password
+            Password:
             <input
               type="password"
               value={password}
@@ -72,7 +85,7 @@ function SignupFormPage() {
           </label>
           <br></br>
           <label>
-            Confirm Password
+            Confirm Password:
             <input
               type="password"
               value={confirmPassword}
