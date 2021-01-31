@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import "./LoginForm.css";
+import logo from './images/circuit.jpg'
 
 function LoginForm() {
   const dispatch = useDispatch();
@@ -22,7 +23,7 @@ function LoginForm() {
   return (
     <>
       <div className="login1">
-        <h1 className="logheading">Log In</h1>
+      <h1 className="logheading">Log In</h1>
       </div>
       <br></br>
       <form onSubmit={handleSubmit}>

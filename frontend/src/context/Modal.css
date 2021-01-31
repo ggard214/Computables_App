@@ -20,5 +20,8 @@
 
 #modal-content {
   position: absolute;
-  background-color:lightgray;
+  background: url("./images/circuit.jpg");
+  background-size: 300px;
+  padding-left: 5px;
+
   }

@@ -1,3 +1,8 @@
+.login1 {
+  width: 300px;
+  }
+
+
 .loginbutton {
   background: none;
   color: inherit;
@@ -9,19 +14,27 @@
 }
 
 .logheading {
-  padding-left: 30%;
+  text-align: center;
   padding-top: 10px;
+  color: lightgray;
+  text-shadow: 2px 2px black;
 }
 
 .submitbutton {
-  padding-left: 30%;
+  padding-left: 40%;
   padding-top: 10px;
+  text-shadow: 2px 2px black;
 }
 
 #unem {
-  font-size: 12px;
+  font-size: 15px;
+  padding-left: 10px;
+  color: lightgray;
+  text-shadow: 2px 2px black;
 }
 
 #pw {
-  font-size: 12px;
+  font-size: 15px;
+  padding-left: 10px;
+  color: lightgray;
 }
